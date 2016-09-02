@@ -2,7 +2,7 @@
 
 Plugin for Vera UI7 to connect to Mochad running on a Pogoplug or Pi using a CM15A or CM19A to control X10 stuff.
 
-I wrote none of this.  All of the credit goes to radarengineer and/or bfocht (same personn?).  The original code I found is at:
+I wrote none of this.  All of the credit goes to radarengineer and/or bfocht (same person?).  The original code I found is at:
 
 https://github.com/bfocht/vera_plugins/tree/10a72bf5253422d471e8d28d1018fce17f82d629/mochad
 
@@ -22,26 +22,26 @@ The goal of this plugin is to have full support for all commands.
 
 = Installation = 
 There are two approaches to installation.  The Safe way and the Pretty way.
-The safe way is to copy the 8 files you download to the Luup engine and create the Mochad device manually.  It's down side is that you won't have a 'Mochad' app listed in 'My Apps'.  Does'nt really matter except it isn't as pretty.
-The Pretty way is to install the UI5 Mochad and before it can do muych damage copy the same 8 files to the Luup engine.  The problem is that Mochad will go into a crash/reboot loop that will keep creating A1, A2, and M1 over and over again.  Thus the hurry to copy the 8 files.
+The safe way is to copy the 8 files you download to the Luup engine and create the Mochad device manually.  It's down side is that you won't have a 'Mochad' app listed in 'My Apps'.  Doesn't really matter except it isn't as pretty.
+The Pretty way is to install the UI5 Mochad and before it can do much damage copy the same 8 files to the Luup engine.  The problem is that Mochad will go into a crash/reboot loop that will keep creating A1, A2, and M1 over and over again.  Thus the hurry to copy the 8 files.
 
 I will describe the Safe way first:
 
-1. Download the mochad install files here: [https://github.com/jimcghee/MochadPluginUI7]. Click the 'clone or download' button, then click 'Download ZIP'.  Extract the zip into a local directory.
+1. Download the Mochad install files here: [https://github.com/jimcghee/MochadPluginUI7]. Click the 'clone or download' button, then click 'Download ZIP'.  Extract the zip into a local directory.
 
 2. Click the "Apps" link on the left side of the Vera Web page, then click "Develop Apps", then "Luup files".
 
 3. You will see a green "Upload" button.  Grab all 8 of the files downloaded/extracted (except for the README) and drop them on the "upload" button.  You will see all 8 files copy.  Click Done
 
 4. Go to the "Create Device" tab. Fill in these fields:
-    * **Description:** a name for your new mochad device (e.g, "cm19a")
+    * **Description:** a name for your new Mochad device (e.g, "cm19a")
     * **UpnpDevFilename:** D_Mochad1.xml
     * **UnnpImplFilename:** I_Mochad1.xml
-    * **IpAddress:** The ip address of the machine running the mochad daemon.
+    * **IpAddress:** The ip address of the machine running the Mochad daemon.
 
 5. Go to Settings/"Net & Wi-fi" and click "Reboot" and Yes when it asks. After the reboot completes (5 min) reload the page.
 
-6. Click Device and look in "No Room" to find the newly created mochad device.
+6. Click Device and look in "No Room" to find the newly created Mochad device.
 
 7. Go to the "Advanced" tab and click "Variables".
 

@@ -21,12 +21,17 @@ http://sourceforge.net/apps/mediawiki/mochad/index.php?title=Mochad_Reference
 The goal of this plugin is to have full support for all commands.
 
 = Installation = 
+There are two approaches to installation.  The Safe way and the Pretty way.
+The safe way is to copy the 8 files you download to the Luup engine and create the Mochad device manually.  It's down side is that you won't have a 'Mochad' app listed in 'My Apps'.  Does'nt really matter except it isn't as pretty.
+The Pretty way is to install the UI5 Mochad and before it can do muych damage copy the same 8 files to the Luup engine.  The problem is that Mochad will go into a crash/reboot loop that will keep creating A1, A2, and M1 over and over again.  Thus the hurry to copy the 8 files.
 
-1. Download the mochad install files here: [http://code.mios.com/trac/mios_mochad-x10/changeset/6/trunk/?old_path=%2F&format=zip Mochad Install (Zip File)]
+I will describe the Safe way first:
 
-2. Click the "Mios Developers" link in "Toolbox".
+1. Download the mochad install files here: [https://github.com/jimcghee/MochadPluginUI7]. Click the 'clone or download' button, then click 'Download ZIP'.  Extract the zip into a local directory.
 
-3. Go to the "Luup files" tab, scroll down, and upload the three files contained in the mochad zip file (D_Mochad1.xml, I_Mochad1.xml, S_Mochad1.xml).
+2. Click the "Apps" link on the left side of the Vera Web page, then click "Develop Apps", then "Luup files".
+
+3. You will see a green "Upload" button.  Grab all 8 of the files downloaded/extracted (except for the README) and drop them on the "upload" button.  You will see all 8 files copy.  Click Done
 
 4. Go to the "Create Device" tab. Fill in these fields:
     * **Description:** a name for your new mochad device (e.g, "cm19a")
@@ -34,11 +39,11 @@ The goal of this plugin is to have full support for all commands.
     * **UnnpImplFilename:** I_Mochad1.xml
     * **IpAddress:** The ip address of the machine running the mochad daemon.
 
-5. Exit the mios developers popup.
+5. Go to Settings/"Net & Wi-fi" and click "Reboot" and Yes when it asks. After the reboot completes (5 min) reload the page.
 
-6. Click the little wrench in the upper right hand corner of the newly created mochad device.
+6. Click Device and look in "No Room" to find the newly created mochad device.
 
-7. Go to the "Advanced" tab and scroll down to the "Variables" section.
+7. Go to the "Advanced" tab and click "Variables".
 
 8. Fill in the following variables:
     * **BinaryModules:** a comma separated list of house/unit codes for any appliance modules you may have. For example: "A1,D2"

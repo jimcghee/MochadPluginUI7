@@ -20,13 +20,12 @@ http://sourceforge.net/apps/mediawiki/mochad/index.php?title=Mochad_Reference
 
 The goal of this plugin is to have full support for all commands.
 
-= Installation = 
+== Installation ==
 There are two approaches to installation.  The Safe way and the Pretty way.
 The safe way is to copy the 8 files you download to the Luup engine and create the Mochad device manually.  It's down side is that you won't have a 'Mochad' app listed in 'My Apps'.  Doesn't really matter except it isn't as pretty.
 The Pretty way is to install the UI5 Mochad and before it can do much damage copy the same 8 files to the Luup engine.  The problem is that Mochad will go into a crash/reboot loop that will keep creating A1, A2, and M1 over and over again.  Thus the hurry to copy the 8 files.
 
 == I will describe the Safe way first ==
-
 1. Download the Mochad install files here: [https://github.com/jimcghee/MochadPluginUI7]. Click the 'clone or download' button, then click 'Download ZIP'.  Extract the zip into a local directory.
 
 2. Click the "Apps" link on the left side of the Vera Web page, then click "Develop Apps", then "Luup files".

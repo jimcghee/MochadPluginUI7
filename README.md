@@ -24,29 +24,37 @@ The goal of this plugin is to have full support for all commands.
 
 There are two approaches to installation.  The Safe way and the Pretty way.
 The safe way is to copy the 8 files you download to the Luup engine and create the Mochad device manually.  It's down side is that you won't have a 'Mochad' app listed in 'My Apps'.  Doesn't really matter except it isn't as pretty.
-The Pretty way is to install the UI5 Mochad and before it can do much damage copy the same 8 files to the Luup engine.  The problem is that Mochad will go into a crash/reboot loop that will keep creating A1, A2, and M1 over and over again.  Thus the hurry to copy the 8 files.
+The Pretty way is to install the UI5 Mochad and before it can do any damage copy the same 8 files to the Luup engine.  The problem is that if you should give Mochad your Pi's IP before copying the new files, it will go into a crash/reboot loop that will keep creating A1, A2, and M1 over and over again.  In other words, DON'T BE IN A RUCH TO GIVE YOUR NEW MOCHAD DEVICE THE IP ADDRESS OF YOUR PI!
 
-== I will describe the Safe way first ==
+== The 'Install the App' way ==
 
-1. Download the Mochad install files here: [https://github.com/jimcghee/MochadPluginUI7]. Click the 'clone or download' button, then click 'Download ZIP'.  Extract the zip into a local directory.
+1. Download the Mochad install files here: [https://github.com/jimcghee/MochadPluginUI7]. 
+	Click the 'clone or download' button, then click 'Download ZIP'.  Extract the zip into a local directory.
 
-2. Click the "Apps" link on the left side of the Vera Web page, then click "Develop Apps", then "Luup files".
+2. 	Install 'Mochad X10 Gateway' from the App store.
+	A minute or two after 'Mochad X10 Gateway' is installed, you will see a blue banner that says:
+	
+	Cannot connect to Mochad on : Mochad
+	
+	At this point you have installed the UI5 version that DOESN'T WORK!  This is good.
+	
+3.	Click the "Apps" link on the left side of the Vera Web page, then click "Develop Apps", 
+	then "Luup files".
 
-3. You will see a green "Upload" button.  Grab all 8 of the files downloaded/extracted (except for the README) and drop them on the "upload" button.  You will see all 8 files copy.  Click Done
+4. 	You will see a green "Upload" button.  Grab 8 of the 9 files downloaded/extracted (ignore the README) 
+	and drop them on the "upload" button.  You will see all 8 files copy.  
+	
+5.	Click 'Serial Port Configuration' (on the same page) and click the Save button.  
+	This will cause the Luup engine to reload.
+	
+6.	Click Device and look in "No Room" to find the newly created Mochad device 
+	titled: 'Mochad Control of cm15a over ethernet'.
 
-4. Go to the "Create Device" tab. Fill in these fields:
-    * **Description:** a name for your new Mochad device (e.g, "cm19a")
-    * **UpnpDevFilename:** D_Mochad1.xml
-    * **UnnpImplFilename:** I_Mochad1.xml
-    * **IpAddress:** The ip address of the machine running the Mochad daemon.
+7.	Go to the "Advanced" tab and click "Params" and enter the IP address of the Pi running Mochad. 
+	It's OK now because you have uploaded the new files to your Vera.
+	Click 'New Service' and 'Reload Engine'.  Wait for reload to complete.
 
-5. Go to Settings/"Net & Wi-fi" and click "Reboot" and Yes when it asks. After the reboot completes (5 min) reload the page.
-
-6. Click Device and look in "No Room" to find the newly created Mochad device.
-
-7. Go to the "Advanced" tab and click "Variables".
-
-8. Fill in the following variables:
+8.	Go to the "Advanced" tab and click "Variables" and fill in the following variables:
     * **BinaryModules:** a comma separated list of house/unit codes for any appliance modules you may have. For example: "A1,D2"
     * **DimableModules:** a comma separated list of house/unit codes, but for *old style* dimmable modules.
     * **SoftstartModules:** a comma separated list of house/unit codes, but for newer dimmable modules like any recently produced LM465s.
@@ -54,13 +62,26 @@ The Pretty way is to install the UI5 Mochad and before it can do much damage cop
     * **RFSecMotionSensors:** a comma separated list of RFSec motion sensors like the MS10A. For example: "02:00:00,03:00:00"
     * **RFSecDoorSensors:**  a comma separated list of RFSec door/window sensors like the ds10a
     * **PowerLineCommand:** this is set to 0 to control lights with RF commands and 1 to control lights with PL commands. PL control requires a cm15a.
+	
+9.	Again, click 'New Service' and 'Reload Engine'.  When the reload completes, all of your new X10 
+	devices should appear in the 'No Room' page.
 
-== The Pretty way ==
+== The 'Alternate' way ==
 
-This is the same except after step 1, install the Mochad plugin/App from the App store.
-AS SOON AS THE INSTALATION COMPLETES, PERFORM STEP 2 AND 3.
-It is important this is done quickly because due to differences between UI5 and UI7 the Mochad startup script will begin creating A1, A2, and M1, failing/crashing/rebooting, and trying again until you copy the new files in step 3.
-Then skip step 4 because installing Mochad app will create the device for you.
-Procede to step 5 to continue the installation process.
+	Instead of installing the Mochad app, you will create it's device manually.
+	
+	Do STEP 1 and SKIP STEP 2.
+	
+	Do STEP 3, and 4, and then:
+	
+	Go to the "Create Device" tab. Fill in these fields:
+    * **Description:** a name for your new Mochad device (e.g, "cm19a")
+    * **UpnpDevFilename:** D_Mochad1.xml
+    * **UnnpImplFilename:** I_Mochad1.xml
+    * **IpAddress:** The ip address of the machine running the Mochad daemon.
 
-If you already have Mochad app running in UI5, you can copy/paste the values from step 4 so all your devices will be created and all you will have to do is name them, put them in rooms, and wire them to your scenes.
+	Then, click the 'Create Device' button.
+	
+	Complete the process, beginning with STEP 5 (reloading the Luup engine).
+
+Note: If you already have the Mochad app running in UI5, you can copy/paste the values in step 8 from your old installation so all your devices will automatically be created and all you will have to do is name them, put them in rooms, and wire them to your scenes.
